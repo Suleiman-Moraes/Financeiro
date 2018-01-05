@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="FinanceiroPU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!--descrição da URL de conexão com o banco de dados. -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/financeiro" />
+
+			<!--nome do usuário do banco de dados -->
+			<property name="javax.persistence.jdbc.user" value="root" />
+
+			<!--senha do usuário do banco de dados. -->
+			<property name="javax.persistence.jdbc.password" value="123456" />
+
+			<!--nome completo da classe do driver JDBC. -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+			<!-- dialeto a ser usado na construção de comandos SQL -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+
+			<!--informa se os comandos SQL devem ser exibidos na console (importante 
+				para debug, mas deve ser desabilitado em ambiente de produção). -->
+			<property name="hibernate.show_sql" value="true" />
+
+			<!--indica se os comandos SQL exibidos na console devem ser formatados 
+				(facilita a compreensão, mas pode gerar textos longos na saída). -->
+			<property name="hibernate.format_sql" value="true" />
+
+			<!--cria ou atualiza automaticamente a estrutura das tabelas no banco 
+				de dados. -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
