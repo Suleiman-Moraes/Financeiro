@@ -1,8 +1,8 @@
-package com.moraes.financeiro.bean;
+package com.moraes.financeiro.controller;
 
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+@ManagedBean(name = "ola")
 public class OlaBean {
 	//Atributos
 	private String nome;
