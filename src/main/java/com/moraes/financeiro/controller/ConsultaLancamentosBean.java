@@ -13,21 +13,18 @@ import com.moraes.financeiro.util.JpaUtil;
 
 @ManagedBean
 @ViewScoped
-public class ConsultaLancamentosBean implements Serializable{
-
+public class ConsultaLancamentosBean implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private List<Lancamento> lancamentos;
-	
+
 	public void consultar() {
 		EntityManager manager = JpaUtil.getEntityManager();
 		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento", Lancamento.class);
 		this.lancamentos = query.getResultList();
-		
 		manager.close();
 	}
-	
-	public List<Lancamento> getLancamentos(){
-		return lancamentos;
-	}
+
+	public List<Lancamento> getLancamentos() {return lancamentos;}
 }
