@@ -19,7 +19,7 @@ public class NomesBean {
 	private HtmlCommandButton botaoAdicionar;
 	
 	//Metodos
-	public void adicionar() {
+	public String adicionar() {
 		this.nomes.add(nome);
 		
 		// desativa campo e botão quando mais que 3 nomes
@@ -28,7 +28,10 @@ public class NomesBean {
 			this.inputNome.setDisabled(true);
 			this.botaoAdicionar.setDisabled(true);
 			this.botaoAdicionar.setValue("Muitos nomes adicionados...");
+			
+			return "Ola?faces-redirect=true";
 		}
+		return null;
 	}
 
 	// getters e setters

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" >
 <h:head>
 	<title>Olá JSF</title>
 </h:head>
@@ -13,6 +14,51 @@
 		Sobrenome: <h:inputText value="#{ola.sobrenome}" />
 		<br />
 		<h:commandButton value="Dizer olá" action="#{ola.dizerOla}" />
+		
+		<h:selectOneListbox size="5" value="#{minhaCidadeBean.cidadeNatal}">
+			<f:selectItems value="#{minhaCidadeBean.todasCidades}" />
+		</h:selectOneListbox>
+		
+		<h:outputLink value="http://www.algaworks.com" target="_blank">
+			<f:param name="codigo" value="931"/>
+			<f:param name="grupo" value="Java"/>
+			<h:graphicImage library="imagens" name="logo.png" />
+		</h:outputLink>
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Dados para cadastro" />
+			</f:facet>
+			
+			<h:outputText value="Nome:" />
+			<h:inputText size="20" />
+			
+			<h:outputText value="E-mail:" />
+			<h:panelGroup>
+				<h:inputText size="40" />
+				<h:commandButton value="Validar" />
+			</h:panelGroup>
+			
+			<h:outputText value="Senha:" />
+			<h:inputSecret size="20" />
+			
+			<h:outputText />
+			<h:commandButton value="Cadastrar" />
+			
+			<h:messages showDetail="true" 
+				showSummary="true"
+				errorStyle="color: red" 
+				infoStyle="color: green"
+				warnStyle="color: orange" 
+				fatalStyle="color: gray" />
+				
+			<h:outputLabel value="Nome:" />
+			<h:inputText value="#{cadastroBean.nome}" />
+			
+			<h:commandButton 
+				value="Cadastrar"
+				action="#{cadastroBean.cadastrar}" />
+		</h:panelGrid>
 	</h:form>
 </h:body>
 </html>

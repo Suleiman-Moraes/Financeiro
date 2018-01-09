@@ -12,5 +12,14 @@
 		</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>oi</from-outcome>
+			<to-view-id>/Ola.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
