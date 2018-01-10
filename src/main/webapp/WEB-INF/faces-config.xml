@@ -21,5 +21,11 @@
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
+	
+	<application>
+		<message-bundle>
+			com.moraes.resources.Messages
+		</message-bundle>
+	</application>
 
 </faces-config>
