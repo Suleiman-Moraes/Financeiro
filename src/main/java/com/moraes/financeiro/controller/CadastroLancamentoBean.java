@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -17,6 +19,8 @@ import com.moraes.financeiro.service.CadastroLancamentos;
 import com.moraes.financeiro.service.NegocioException;
 import com.moraes.financeiro.util.JpaUtil;
 
+@ManagedBean
+@ViewScoped
 public class CadastroLancamentoBean implements Serializable {
 	// Atributos
 	private static final long serialVersionUID = 1L;
