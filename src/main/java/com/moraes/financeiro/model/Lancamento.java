@@ -21,6 +21,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.moraes.financeiro.validation.DecimalPositivo;
+
 @Entity
 @Table(name = "lancamento")
 public class Lancamento implements Serializable {
@@ -56,8 +58,7 @@ public class Lancamento implements Serializable {
 		return descricao;
 	}
 
-	@NotNull
-	@DecimalMin("0")
+	@DecimalPositivo
 	@Column(precision = 10, scale = 2, nullable = false)
 	public BigDecimal getValor() {
 		return valor;

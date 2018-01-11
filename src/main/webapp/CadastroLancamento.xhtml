@@ -42,9 +42,11 @@
 					</h:selectOneMenu>
 						
 					<h:outputLabel value="Descrição" />
-					<h:inputText size="60"
+					<h:inputText size="60" 
+						label="Descrição"
 						value="#{cadastroLancamentoBean.lancamento.descricao}"
-						label="Descrição" />
+						valueChangeListener="#{cadastroLancamentoBean.descricaoModificada}" 
+						immediate="true"/>
 						
 					<h:outputLabel value="Valor" />	
 					<h:inputText size="12"
