@@ -3,6 +3,7 @@ package com.moraes.financeiro.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -14,6 +15,7 @@ public class Lancamentos implements Serializable{
 	
 	private EntityManager manager;
 	
+	@Inject
 	public Lancamentos(EntityManager manager) {
 		this.manager = manager;
 	}
@@ -25,5 +27,23 @@ public class Lancamentos implements Serializable{
 	
 	public void adicionar(Lancamento lancamento) {
 		this.manager.persist(lancamento);
+	}
+	
+	public List<String> descricoesQueContem(String descricao) {
+		TypedQuery<String> query = manager.createQuery("select distinct descricao from Lancamento where upper(descricao) like upper(:descricao)",String.class);
+		query.setParameter("descricao", "%" + descricao + "%");
+		return query.getResultList();
+	}
+	
+	public Lancamento porId(Long id) {
+		return manager.find(Lancamento.class, id);
+	}
+	
+	public Lancamento guardar(Lancamento lancamento) {
+		return this.manager.merge(lancamento);
+	}
+	
+	public void remover(Lancamento lancamento) {
+		this.manager.remove(lancamento);
 	}
 }

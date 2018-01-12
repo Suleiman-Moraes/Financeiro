@@ -3,6 +3,7 @@ package com.moraes.financeiro.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -13,12 +14,12 @@ public class Pessoas implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private EntityManager manager;
 	
-	//Construtor
+	//Metodos
+	@Inject
 	public Pessoas(EntityManager manager) {
 		this.manager = manager;
 	}
 	
-	//Metodos
 	public Pessoa porId(Long id) {
 		return manager.find(Pessoa.class, id);
 	}
